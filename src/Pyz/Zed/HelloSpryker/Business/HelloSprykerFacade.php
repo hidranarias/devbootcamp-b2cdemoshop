@@ -4,13 +4,15 @@ namespace Pyz\Zed\HelloSpryker\Business;
 
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
+/**
+ * @inheritDoc
+ * @method HelloSprykerBusinessFactory getFactory()
+ */
+
 class HelloSprykerFacade extends AbstractFacade implements HelloSprykerFacadeInterface
 {
 
-    /**
-     * @inheritDoc
-     * @method HelloSprykerBusinessFactory getFactory()
-     */
+
     public function reverseString(string $stringToReverse): string
     {
 
