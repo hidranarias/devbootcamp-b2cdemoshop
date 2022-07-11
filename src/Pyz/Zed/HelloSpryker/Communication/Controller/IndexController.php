@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed;
+namespace Pyz\Zed\HelloSpryker\Communication\Controller;
 
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
