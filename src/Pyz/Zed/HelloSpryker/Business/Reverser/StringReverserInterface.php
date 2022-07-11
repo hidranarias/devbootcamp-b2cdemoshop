@@ -1,10 +1,10 @@
 <?php
-
 namespace Pyz\Zed\HelloSpryker\Business\Reverser;
 
 
 
 interface StringReverserInterface
+
 {
     /**
      * @param string $stringToReverse

@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\HelloSpryker\Business\Reverser\Business\Reverser;
+namespace Pyz\Zed\HelloSpryker\Business\Reverser;
 
-use Pyz\Zed\HelloSpryker\Business\Reverser\StringReverserInterface;
+
 
 class StringReverser implements StringReverserInterface
 {

@@ -9,6 +9,8 @@ class IndexController extends AbstractController
 {
 public function indexAction(Request $request)
 {
- return ['string' => $request->get('string', 'Hello Spryker')];
+    $string = $request->get('string', 'Hello Spryker');
+    return [
+     'string' => $this->getFacade()->reverseString($string)];
 }
 }
