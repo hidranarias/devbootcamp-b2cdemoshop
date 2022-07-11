@@ -4,15 +4,16 @@ namespace Pyz\Yves\HelloWorld\Controller;
 
 use Elastica\Request;
 use Spryker\Yves\Kernel\Controller\AbstractController;
+use Spryker\Yves\Kernel\View\View;
 
 
 class IndexController extends AbstractController
 {
- public function indexAction(Request $req = null)
+ public function indexAction(Request $req = null):View
  {
-   $data = [''];
-     $data = ['helloWorld' => 'Hello World!'];
 
+     $data = ['helloWorld' => 'Hello World!'];
+//return $this->viewResponse($data);
 
      return $this->view(
          $data,
