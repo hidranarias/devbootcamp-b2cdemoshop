@@ -17,10 +17,19 @@ class IndexController extends AbstractController
 public function indexAction(Request $request)
 {
    $dt = new HelloSprykerTransfer();
-   $dt->setOriginalString('Hello Spryker');
+    $originalString = $request->get('string', 'Hello Spryker');
+    $dt->setOriginalString($originalString);
+    $dt = $this->getFacade()->reverseString($dt);
+    $dt->setOriginalString($originalString);
+
+           // Create new row in DB.
+           $dt = $this->getFacade()->createHelloSprykerEntity($dt);
+
+           // Retrieve data from DB.
+           $dt = $this->getFacade()->findHelloSpryker($dt);
 
     return [
-     'string' => $this->getFacade()->reverseString($dt)->getReversedString()
+     'string' => $dt->getReversedString()
     ];
 }
 }
