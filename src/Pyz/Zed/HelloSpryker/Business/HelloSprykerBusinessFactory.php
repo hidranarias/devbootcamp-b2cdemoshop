@@ -4,10 +4,12 @@ namespace Pyz\Zed\HelloSpryker\Business;
 
 use Pyz\Zed\HelloSpryker\Business\Reader\StringReader;
 use Pyz\Zed\HelloSpryker\Business\Reader\StringReaderInterface;
-use Pyz\Zed\HelloSpryker\Business\Reverser\StringReverser;
-use Pyz\Zed\HelloSpryker\Business\Reverser\StringReverserInterface;
+use Pyz\Zed\StringReverser\Business\Reverser\StringReverserInterface;
 use Pyz\Zed\HelloSpryker\Business\Writer\StringWriter;
 use Pyz\Zed\HelloSpryker\Business\Writer\StringWriterInterface;
+use Pyz\Zed\HelloSpryker\HelloSprykerDependencyProvider;
+use Pyz\Zed\StringReverser\Business\StringReverserFacade;
+use Pyz\Zed\StringReverser\Business\StringReverserFacadeInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -16,12 +18,20 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 + */
 class HelloSprykerBusinessFactory extends AbstractBusinessFactory
 {
+
+    /**
+     * @return StringReverserFacade
+     */
+    protected function getStringReverserFacade(): StringReverserFacadeInterface
+    {
+        return $this->getProvidedDependency(HelloSprykerDependencyProvider::FACADE_STRING_REVERSER);
+    }
     /**
      * @return StringReverserInterface
      */
-    public function createStringReverser(): StringReverserInterface
+    public function createStringReverser(): StringReverserFacadeInterface
     {
-        return new StringReverser();
+        return $this->getStringReverserFacade();
     }
 
     /**
