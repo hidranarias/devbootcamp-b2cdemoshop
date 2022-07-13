@@ -3,14 +3,19 @@
 namespace Pyz\Yves\PersonalizedProduct\Controller;
 
 use Spryker\Yves\Kernel\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class IndexController extends AbstractController
 {
- public function indexAction()
+ public function indexAction($limit)
 
  {
-     return $this->view(
-         [],[],'@PersonalizedProduct/views/Index/index.twig'
-     );
+             $searchResults = $this->getClient()->getPersonalizedProducts($limit);
+
+             return $this->view(
+                 $searchResults,
+                 [],
+                 '@PersonalizedProduct/views/Index/index.twig'
+             );
  }
 }
