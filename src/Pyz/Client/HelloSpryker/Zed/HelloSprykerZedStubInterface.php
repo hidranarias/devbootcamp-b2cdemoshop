@@ -3,13 +3,14 @@
 namespace Pyz\Client\HelloSpryker\Zed;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 
 interface HelloSprykerZedStubInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\HelloSprykerTransfer $helloSprykerTransfer
+     * @param StringReverserTransfer $helloSprykerTransfer
      *
-     * @return \Generated\Shared\Transfer\HelloSprykerTransfer
+     * @return StringReverserTransfer
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function reverseString(StringReverserTransfer $helloSprykerTransfer): StringReverserTransfer;
 }

@@ -3,6 +3,7 @@
 namespace Pyz\Zed\StringReverser\Business;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 class StringReverserFacade  extends AbstractFacade implements StringReverserFacadeInterface
@@ -17,7 +18,7 @@ class StringReverserFacade  extends AbstractFacade implements StringReverserFaca
      * @api
      *
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
+    public function reverseString(StringReverserTransfer $helloSprykerTransfer): StringReverserTransfer
     {
         return $this->getFactory()
             ->createStringReverser()

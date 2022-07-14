@@ -3,6 +3,8 @@
 namespace Pyz\Zed\HelloSpryker\Business;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReserverserTRansfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
@@ -15,44 +17,44 @@ class HelloSprykerFacade extends AbstractFacade implements HelloSprykerFacadeInt
     /**
      * {@inheritDoc}
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
+    public function reverseString(StringReverserTransfer $stringReverserTransfer): StringReverserTransfer
     {
         return $this->getFactory()
             ->createStringReverser()
-            ->reverseString($helloSprykerTransfer);
+            ->reverseString($stringReverserTransfer);
     }
 
     /**
      * @inheritDoc
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function createHelloSprykerEntity(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
+    public function createHelloSprykerEntity(HelloSprykerTransfer $stringReverserTransfer): HelloSprykerTransfer
     {
-        return $this->getFactory()->createStringWriter()->createHelloSprykerEntity($helloSprykerTransfer);
+        return $this->getFactory()->createStringWriter()->createHelloSprykerEntity($stringReverserTransfer);
     }
 
     /**
      * @inheritDoc
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function findHelloSpryker(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
+    public function findHelloSpryker(HelloSprykerTransfer $StringReserverserTRansfer): HelloSprykerTransfer
     {
-            return $this->getFactory()->createStringReader()->findHelloSpryker($helloSprykerTransfer);
+            return $this->getFactory()->createStringReader()->findHelloSpryker($StringReserverserTRansfer);
     }
 }

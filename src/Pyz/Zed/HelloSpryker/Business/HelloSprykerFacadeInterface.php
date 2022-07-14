@@ -3,6 +3,8 @@
 namespace Pyz\Zed\HelloSpryker\Business;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReserverserTRansfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 
 interface HelloSprykerFacadeInterface
 {
@@ -10,35 +12,35 @@ interface HelloSprykerFacadeInterface
      * Specification:
      * - Reverses string.
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function reverseString(StringReverserTransfer $StringReserverserTRansfer): StringReverserTransfer;
 
     /**
      * Specification:
      * - Creates a database record
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function createHelloSprykerEntity(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function createHelloSprykerEntity(HelloSprykerTransfer $StringReserverserTRansfer): HelloSprykerTransfer;
 
     /**
      * Specification:
      * - Finds a record in database
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param HelloSprykerTransfer $StringReserverserTRansfer
      *
      * @return HelloSprykerTransfer
      * @api
      *
      */
-    public function findHelloSpryker(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function findHelloSpryker(HelloSprykerTransfer $StringReserverserTRansfer): HelloSprykerTransfer;
 }

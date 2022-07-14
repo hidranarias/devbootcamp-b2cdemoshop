@@ -3,13 +3,14 @@
 namespace Pyz\Zed\HelloSpryker\Business\Reader;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 
 interface StringReaderInterface
 {
     /**
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param StringReverserTransfer $helloSprykerTransfer
      *
-     * @return HelloSprykerTransfer
+     * @return StringReverserTransfer
      */
     public function findHelloSpryker(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
 }

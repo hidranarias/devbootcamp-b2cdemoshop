@@ -3,6 +3,7 @@
 namespace Pyz\Zed\HelloSpryker\Business\Writer;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 use Pyz\Zed\HelloSpryker\Persistence\HelloSprykerEntityManagerInterface;
 
 class StringWriter implements StringWriterInterface

@@ -3,6 +3,7 @@
 namespace Pyz\Client\HelloSpryker;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 
 interface HelloSprykerClientInterface
 {
@@ -13,11 +14,11 @@ interface HelloSprykerClientInterface
      *
      * @api
      *
-     * @param HelloSprykerTransfer $helloSprykerTransfer
+     * @param StringReverserTransfer $helloSprykerTransfer
      *
-     * @return HelloSprykerTransfer
+     * @return StringReverserTransfer
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function reverseString(StringReverserTransfer $helloSprykerTransfer): StringReverserTransfer;
 
 
 }

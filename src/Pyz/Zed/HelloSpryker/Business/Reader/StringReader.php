@@ -3,6 +3,7 @@
 namespace Pyz\Zed\HelloSpryker\Business\Reader;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 use Pyz\Zed\HelloSpryker\Persistence\HelloSprykerRepositoryInterface;
 
 class StringReader implements StringReaderInterface

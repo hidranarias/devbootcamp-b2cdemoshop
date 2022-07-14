@@ -3,6 +3,7 @@
 namespace Pyz\Client\HelloSpryker;
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 use Spryker\Client\Kernel\AbstractClient;
 
 /**
@@ -19,7 +20,7 @@ class HelloSprykerClient extends AbstractClient implements HelloSprykerClientInt
      * @api
      *
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer
+    public function reverseString(StringReverserTransfer $helloSprykerTransfer): StringReverserTransfer
     {
         return $this->getFactory()
             ->createHelloSprykerZedStub()

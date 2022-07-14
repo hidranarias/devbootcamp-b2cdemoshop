@@ -4,6 +4,7 @@ namespace Pyz\Zed\StringReverser\Business\Reverser;
 
 
 use Generated\Shared\Transfer\HelloSprykerTransfer;
+use Generated\Shared\Transfer\StringReverserTransfer;
 
 interface StringReverserInterface
 
@@ -13,6 +14,6 @@ interface StringReverserInterface
      *
      * @return string
      */
-    public function reverseString(HelloSprykerTransfer $helloSprykerTransfer): HelloSprykerTransfer;
+    public function reverseString(StringReverserTransfer $helloSprykerTransfer): StringReverserTransfer;
 
 }
