@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <personalized-product>
+        <label>Personalized Product</label>
+        <title>Personalized Product</title>
+        <bundle>personalized-product</bundle>
+        <controller>index</controller>
+        <action>index</action>
+    </personalized-product>
+</config>
