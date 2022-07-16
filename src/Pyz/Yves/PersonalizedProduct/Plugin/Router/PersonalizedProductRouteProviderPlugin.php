@@ -16,9 +16,9 @@ class PersonalizedProductRouteProviderPlugin extends AbstractRouteProviderPlugin
        return $this->addPersonalizedProductRoute($routeCollection);
     }
     /**
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
+     * @param RouteCollection $routeCollection
      *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
+     * @return RouteCollection
      */
     protected function addPersonalizedProductRoute(RouteCollection $routeCollection): RouteCollection
     {
