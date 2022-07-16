@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <config>
+
     <!-- You can control navigation order here and add your custom navigation entries -->
+    <antelope>
+        <label>Antelope</label>
+        <title>Antelope</title>
+        <uri>/antelope</uri>
+        <bundle>antelope</bundle>
+        <controller>index</controller>
+        <action>index</action>
+        <icon>fa-globe</icon>
+    </antelope>
     <dashboard>
         <label>Dashboard</label>
         <title>Dashboard</title>

@@ -21,7 +21,7 @@ use Monolog\Logger;
 use Pyz\Shared\Console\ConsoleConstants;
 use Pyz\Shared\Scheduler\SchedulerConfig;
 use Pyz\Yves\ShopApplication\YvesBootstrap;
-use Pyz\Zed\Application\Communication\ZedBootstrap;
+use Pyz\Zed\Application\Communication2\ZedBootstrap;
 use Pyz\Zed\Oms\OmsConfig;
 use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
 use Spryker\Glue\Log\Plugin\GlueLoggerConfigPlugin;
