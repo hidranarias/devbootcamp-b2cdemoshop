@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Router;
 
+use Pyz\Yves\Antelope\Plugin\Router\AntelopeRouteProviderPlugin;
 use Pyz\Yves\ExampleProductSalePage\Plugin\Router\ExampleProductSaleRouteProviderPlugin;
 use Pyz\Yves\HelloSpryker\Plugin\Router\HelloSprykerRouterProviderPlugin;
 use Pyz\Yves\HelloWorld\Plugin\Router\HelloWorldRouteProviderPlugin;
@@ -119,6 +120,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
             new HelloWorldRouteProviderPlugin(),
             new HelloSprykerRouterProviderPlugin(),
             new PersonalizedProductRouteProviderPlugin(),
+            new AntelopeRouteProviderPlugin(),
         ];
     }
 

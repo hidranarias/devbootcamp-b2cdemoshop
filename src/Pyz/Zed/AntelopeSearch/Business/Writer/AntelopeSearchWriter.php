@@ -14,7 +14,8 @@ class AntelopeSearchWriter
      * @param int $idAntelope
      *
      * @return void
-     * @throws AmbiguousComparisonException|PropelException
+     * @throws AmbiguousComparisonException|
+     * PropelException
      */
     public function publish(int $idAntelope): void
     {

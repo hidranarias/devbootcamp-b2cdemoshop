@@ -30,6 +30,7 @@ class AntelopeWriterStep extends PublishAwareStep implements DataImportStepInter
         if ($antelopeEntity->isNew() || $antelopeEntity->isModified()) {
             $antelopeEntity->save();
         }
+
         $this->addPublishEvents(AntelopeEvents::ENTITY_PYZ_ANTELOPE_CREATE, $antelopeEntity->getIdAntelope());
     }
 

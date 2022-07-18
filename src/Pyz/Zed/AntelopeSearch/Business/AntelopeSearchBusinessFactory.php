@@ -9,7 +9,7 @@ class AntelopeSearchBusinessFactory
     /**
      * @return AntelopeSearchWriter
      */
-    public function createAntelopeSearchWriter()
+    public function createAntelopeSearchWriter(): AntelopeSearchWriter
     {
         return new AntelopeSearchWriter();
     }

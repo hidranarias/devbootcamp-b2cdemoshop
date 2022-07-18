@@ -22,6 +22,7 @@ class AntelopeSearchListener extends AbstractPlugin implements EventHandlerInter
      */
     public function handle(TransferInterface $transfer, $eventName): void
     {
+       fwrite(STDOUT,$eventName);
         /** @var EventEntityTransfer $transfer */
         if ($eventName === AntelopeEvents::ENTITY_PYZ_ANTELOPE_CREATE) {
             $this->getFacade()->publish($transfer->getId());
