@@ -40,7 +40,7 @@ class AntelopesReader implements AntelopesReaderInterface
         $resourceIdentifier = $restRequest->getResource()->getId();
 
         if (!$resourceIdentifier) {
-            return $this->addAntelopeNameSpecifiedError($response);
+            return $this->getAntelopes($restRequest, $response);
         }
 
         $restResource = $this->findAntelopeByName($resourceIdentifier, $restRequest);
@@ -51,7 +51,18 @@ class AntelopesReader implements AntelopesReaderInterface
 
         return $response->addResource($restResource);
     }
+    public function findAntelopes( RestRequestInterface $restRequest): ?array
+    {
+        $resp = [];
+        $antelopeData = $this->antelopeClient->getAntelopes();
 
+       foreach ($antelopeData as $ant) {
+           $resp[] = $this->createRestResourceFromAntelopeSearchData($ant, $restRequest);
+
+       }
+
+        return $resp;
+    }
     public function findAntelopeByName(string $name, RestRequestInterface $restRequest): ?RestResourceInterface
     {
         $antelopeData = $this->antelopeClient->getAntelopeByName($name);
@@ -60,10 +71,11 @@ class AntelopesReader implements AntelopesReaderInterface
             return null;
         }
 
-        return $this->createRestResourceFromAntelopeSearchData($antelopeData, $restRequest);
+        return $this->createRestResourceFromAntelopeSearchData($antelopeData[0], $restRequest);
     }
 
-    protected function createRestResourceFromAntelopeSearchData(array $antelopeData, RestRequestInterface $restRequest): RestResourceInterface
+    protected function createRestResourceFromAntelopeSearchData(array $antelopeData, RestRequestInterface $restRequest)
+    : RestResourceInterface
     {
         $restAntelopeAttributesTransfer = $this->antelopesResourceMapper
             ->mapAntelopeDataToAntelopeRestAttributes($antelopeData);
@@ -73,6 +85,20 @@ class AntelopesReader implements AntelopesReaderInterface
             $restAntelopeAttributesTransfer->getName(),
             $restAntelopeAttributesTransfer
         );
+    }
+
+    /**
+     * @param RestRequestInterface $restRequest
+     * @param RestResponseInterface $response
+     * @return RestResponseInterface
+     */
+    public function getAntelopes(RestRequestInterface $restRequest, RestResponseInterface $response): RestResponseInterface
+    {
+        $ants = $this->findAntelopes($restRequest);
+        foreach ($ants as $ant) {
+            $response->addResource($ant);
+        }
+        return $response;
     }
 
     protected function addAntelopeNameSpecifiedError(RestResponseInterface $response): RestResponseInterface

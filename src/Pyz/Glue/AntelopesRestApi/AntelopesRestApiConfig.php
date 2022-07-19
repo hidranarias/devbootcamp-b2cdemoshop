@@ -6,6 +6,7 @@ use Spryker\Glue\Kernel\AbstractBundleConfig;
 
 class AntelopesRestApiConfig extends AbstractBundleConfig
 {
+    public const CONTROLLER_ANTELOPES = 'antelopes-resource';
     public const RESOURCE_ANTELOPES = 'antelopes';
     public const RESPONSE_CODE_CANT_FIND_ANTELOPE = '301';
     public const RESPONSE_DETAIL_CANT_FIND_ANTELOPE = 'Antelope was not found.';

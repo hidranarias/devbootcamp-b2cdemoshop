@@ -31,4 +31,26 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
 
         return $searchResults['antelope'] ?? [];
     }
+    /**
+     *
+     * @return array
+     */
+    public function getAntelopes(): array
+    {
+        $searchQuery = $this->getFactory()
+            ->createAntelopeQueryPlugin();
+
+        $resultFormatters = $this->getFactory()
+            ->getSearchQueryFormatters();
+
+        $searchResults = $this->getFactory()
+            ->getSearchClient()
+            ->search(
+                $searchQuery,
+                $resultFormatters
+            );
+
+        return $searchResults['antelope'] ?? [];
+    }
+
 }

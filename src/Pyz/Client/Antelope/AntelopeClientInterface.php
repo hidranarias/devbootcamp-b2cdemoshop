@@ -10,5 +10,6 @@ interface AntelopeClientInterface
      * @return array
      */
     public function getAntelopeByName(string $name): array;
+    public function  getAntelopes() : array;
 }
 

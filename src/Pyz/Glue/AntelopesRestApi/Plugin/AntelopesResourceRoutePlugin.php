@@ -28,7 +28,7 @@ class AntelopesResourceRoutePlugin extends AbstractPlugin implements ResourceRou
 
     public function getController(): string
     {
-        return 'antelopes-resource';
+        return AntelopesRestApiConfig::CONTROLLER_ANTELOPES;
     }
 
     public function getResourceAttributesClassName(): string

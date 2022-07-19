@@ -17,4 +17,10 @@ class AntelopesRestApiResource extends AbstractRestResource implements Antelopes
             ->createAntelopesReader()
             ->findAntelopeByName($name, $restRequest);
     }
+    public function findAntelopes(RestRequestInterface $restRequest): ?RestResourceInterface
+    {
+        return $this->getFactory()
+            ->createAntelopesReader()
+            ->findAntelopes( $restRequest);
+    }
 }

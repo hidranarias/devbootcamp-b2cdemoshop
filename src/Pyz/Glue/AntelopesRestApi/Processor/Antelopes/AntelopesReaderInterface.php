@@ -10,4 +10,5 @@ interface AntelopesReaderInterface
 {
     public function getAntelopeSearchData(RestRequestInterface $restRequest): RestResponseInterface;
     public function findAntelopeByName(string $name, RestRequestInterface $restRequest): ?RestResourceInterface;
+    public function findAntelopes( RestRequestInterface $restRequest): ?array;
 }

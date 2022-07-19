@@ -30,7 +30,7 @@ class AntelopeQueryPlugin implements QueryInterface, SearchContextAwareQueryInte
     /**
      * @param string $name
      */
-    public function __construct(string $name)
+    public function __construct(?string $name = null)
     {
         $this->name = $name;
     }
@@ -40,13 +40,17 @@ class AntelopeQueryPlugin implements QueryInterface, SearchContextAwareQueryInte
      */
     public function getSearchQuery()
     {
-        $boolQuery = (new BoolQuery())
-            ->addMust(
-                new Exists('id_antelope')
-            )
-            ->addMust(
-                new Match('name', $this->name)
-            );
+        $boolQuery = (new BoolQuery());
+        $boolQuery->addMust(
+            new Exists('id_antelope')
+        );
+         if($this->name){
+
+             $boolQuery->addMust(
+                 new Match('name', $this->name)
+             );
+         }
+
 
         $query = (new Query())
             ->setQuery($boolQuery);

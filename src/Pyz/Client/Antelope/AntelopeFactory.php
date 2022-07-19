@@ -12,7 +12,7 @@ class AntelopeFactory extends AbstractFactory
      *
      * @return \Pyz\Client\Antelope\Plugin\Elasticsearch\Query\AntelopeQueryPlugin
      */
-    public function createAntelopeQueryPlugin(string $name)
+    public function createAntelopeQueryPlugin(?string $name = null)
     {
         return new AntelopeQueryPlugin($name);
     }
