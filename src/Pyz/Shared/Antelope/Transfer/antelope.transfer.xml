@@ -8,5 +8,8 @@
         <property name="name" type="string" />
         <property name="color" type="string" />
     </transfer>
-
+    <transfer name="RestAntelopesAttributes">
+        <property name="name" type="string"/>
+        <property name="color" type="string"/>
+    </transfer>
 </transfers>
