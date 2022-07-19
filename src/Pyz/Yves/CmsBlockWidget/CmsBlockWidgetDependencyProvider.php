@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\CmsBlockWidget;
 
+use Pyz\Shared\CmsContentWidgetAntelopeConnector\ContentWidgetConfigurationProvider\CmsContentWidgetAntelopeConnectorConfigurationProvider;
+use Pyz\Yves\CmsContentWidgetAntelopeConnector\Plugin\CmsContentWidget\AntelopeContentWidgetPlugin;
 use SprykerShop\Yves\CmsBlockWidget\CmsBlockWidgetDependencyProvider as SprykerCmsBlockWidgetDependencyProvider;
 use SprykerShop\Yves\CmsBlockWidget\Plugin\Twig\CmsBlockPlaceholderTwigPlugin;
 use SprykerShop\Yves\CmsBlockWidget\Plugin\Twig\CmsBlockWidgetTwigPlugin;
@@ -21,6 +23,7 @@ class CmsBlockWidgetDependencyProvider extends SprykerCmsBlockWidgetDependencyPr
         return [
             new CmsBlockWidgetTwigPlugin(),
             new CmsBlockPlaceholderTwigPlugin(),
+
         ];
     }
 }
