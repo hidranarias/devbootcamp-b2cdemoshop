@@ -1,4 +1,3 @@
-
 {% extends template('widget') %}
 
 {% define data = {
@@ -6,5 +5,9 @@
 } %}
 
 {% block body %}
-    <h1>{{ data.antelope.name }} | {{ data.antelope.color }}</h1>
+        {% include molecule('antelope-box') with {
+            data: {
+                    name: data.antelope.name
+                }
+        } only %}
 {% endblock %}
