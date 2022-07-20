@@ -29,7 +29,7 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
                 $resultFormatters
             );
 
-        return $searchResults['antelope'] ?? [];
+        return $searchResults['antelope'] ?$searchResults['antelope'][0]: [];
     }
     /**
      *
