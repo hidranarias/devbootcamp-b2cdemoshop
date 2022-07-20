@@ -1,0 +1,10 @@
+
+{% extends template('widget') %}
+
+{% define data = {
+    antelope: _widget.antelope
+} %}
+
+{% block body %}
+    <h1>{{ data.antelope.name }} | {{ data.antelope.color }}</h1>
+{% endblock %}
