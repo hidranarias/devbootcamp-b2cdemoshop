@@ -181,6 +181,7 @@
         "spryker/shipment-checkout-connector": "^2.0.4",
         "spryker/shipment-discount-connector": "^4.0.5",
         "spryker/shipments-rest-api": "^1.5.0",
+        "spryker/silex": "^2.2",
         "spryker/store-reference": "^1.1.0",
         "spryker/stores-rest-api": "^1.0.4",
         "spryker/tax-product-connector": "^4.4.0",

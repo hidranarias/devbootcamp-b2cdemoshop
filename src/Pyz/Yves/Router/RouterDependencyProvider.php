@@ -21,6 +21,7 @@ use Spryker\Yves\Router\Plugin\Router\YvesRouterPlugin;
 use Spryker\Yves\Router\Plugin\RouterEnhancer\LanguagePrefixRouterEnhancerPlugin;
 use Spryker\Yves\Router\Plugin\RouterEnhancer\StorePrefixRouterEnhancerPlugin;
 use Spryker\Yves\Router\RouterDependencyProvider as SprykerRouterDependencyProvider;
+use Spryker\Yves\RouterExtension\Dependency\Plugin\RouteProviderPluginInterface;
 use Spryker\Yves\RouterExtension\Dependency\Plugin\RouterPluginInterface;
 use SprykerShop\Yves\AgentPage\Plugin\Router\AgentPageRouteProviderPlugin;
 use SprykerShop\Yves\AgentWidget\Plugin\Router\AgentWidgetRouteProviderPlugin;
@@ -31,7 +32,7 @@ use SprykerShop\Yves\CartCodeWidget\Plugin\Router\CartCodeWidgetRouteProviderPlu
 use SprykerShop\Yves\CartNoteWidget\Plugin\Router\CartNoteWidgetRouteProviderPlugin;
 use SprykerShop\Yves\CartPage\Plugin\Router\CartPageRouteProviderPlugin;
 use SprykerShop\Yves\CatalogPage\Plugin\Router\CatalogPageRouteProviderPlugin;
-use SprykerShop\Yves\CheckoutPage\Plugin\Router\CheckoutPageRouteProviderPlugin;
+
 use SprykerShop\Yves\CmsPage\Plugin\Router\CmsPageRouteProviderPlugin;
 use SprykerShop\Yves\CmsSearchPage\Plugin\Router\CmsSearchPageRouteProviderPlugin;
 use SprykerShop\Yves\ConfigurableBundleNoteWidget\Plugin\Router\ConfigurableBundleNoteWidgetRouteProviderPlugin;
@@ -57,7 +58,7 @@ use SprykerShop\Yves\ProductSetListPage\Plugin\Router\ProductSetListPageRoutePro
 use SprykerShop\Yves\SalesReturnPage\Plugin\Router\SalesReturnPageRouteProviderPlugin;
 use SprykerShop\Yves\StorageRouter\Plugin\Router\StorageRouterPlugin;
 use SprykerShop\Yves\WishlistPage\Plugin\Router\WishlistPageRouteProviderPlugin;
-
+use Pyz\Yves\CheckoutPage\Plugin\Router\CheckoutPageRouteProviderPlugin ;
 class RouterDependencyProvider extends SprykerRouterDependencyProvider
 {
     /**
@@ -75,7 +76,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
     }
 
     /**
-     * @return \Spryker\Yves\RouterExtension\Dependency\Plugin\RouteProviderPluginInterface[]
+     * @return RouteProviderPluginInterface[]
      */
     protected function getRouteProvider(): array
     {
@@ -121,6 +122,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
             new HelloSprykerRouterProviderPlugin(),
             new PersonalizedProductRouteProviderPlugin(),
             new AntelopeRouteProviderPlugin(),
+
         ];
     }
 

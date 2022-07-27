@@ -1,23 +1,27 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
 namespace Pyz\Zed\AntelopeSearch\Business;
 
-use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
-use Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException;
 
 /**
- * @method AntelopeSearchBusinessFactory getFactory()
+ * @method \Pyz\Zed\AntelopeSearch\Business\AntelopeSearchBusinessFactory getFactory()
  */
 class AntelopeSearchFacade extends AbstractFacade implements AntelopeSearchFacadeInterface
 {
     /**
+     * @api
+     *
      * @param int $idAntelope
      *
-     * @return void
      * @throws PropelException|AmbiguousComparisonException
-
+     *
+     * @return void
      */
     public function publish(int $idAntelope): void
     {

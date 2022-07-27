@@ -2,6 +2,9 @@
 
 namespace Pyz\Client\Antelope;
 
+use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
+use Generated\Shared\Transfer\AntelopeResponseTransfer;
+use Generated\Shared\Transfer\AntelopeTransfer;
 use Spryker\Client\Kernel\AbstractClient;
 
 /**
@@ -29,8 +32,9 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
                 $resultFormatters
             );
 
-        return $searchResults['antelope'] ?$searchResults['antelope'][0]: [];
+        return $searchResults['antelope'] ? $searchResults['antelope'][0] : [];
     }
+
     /**
      *
      * @return array
@@ -53,4 +57,17 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
         return $searchResults['antelope'] ?? [];
     }
 
+    public function getAntelope(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeResponseTransfer
+    {
+        return $this->getFactory()
+            ->createAntelopeStub()
+            ->findAntelope($antelopeCriteriaTransfer);
+    }
+
+    public function createAntelope(AntelopeTransfer $antelopeCriteriaTransfer): AntelopeTransfer
+    {
+        return $this->getFactory()
+            ->createAntelopeStub()
+            ->createAntelope($antelopeCriteriaTransfer);
+    }
 }

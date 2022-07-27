@@ -14,9 +14,7 @@ class AntelopeRouteProviderPlugin extends AbstractRouteProviderPlugin
      */
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {
-        $routeCollection = $this->addAntelopeIndexRoute($routeCollection);
-
-        return $routeCollection;
+        return $this->addAntelopeIndexRoute($routeCollection);
     }
 
     /**
@@ -26,7 +24,7 @@ class AntelopeRouteProviderPlugin extends AbstractRouteProviderPlugin
      */
     private function addAntelopeIndexRoute(RouteCollection $routeCollection): RouteCollection
     {
-        $route = $this->buildRoute('/antelope/{name}', 'Antelope', 'Index', 'indexAction');
+        $route = $this->buildRoute('/antelope/{name}', 'Antelope', 'Index');
         $route = $route->setMethods(['GET']);
         $routeCollection->add(static::ANTELOPE_INDEX, $route);
 

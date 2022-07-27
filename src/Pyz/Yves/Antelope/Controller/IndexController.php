@@ -17,10 +17,13 @@ class IndexController extends AbstractController
     public function indexAction(string $name)
     {
         $antelope = $this->getClient()->getAntelopeByName($name);
-
+        $currentStore = $this->getFactory()
+            ->getStoreClient()
+            ->getCurrentStore();
         return $this->view(
             [
                 'antelope' => $antelope,
+                'store' => $currentStore
             ],
             [],
             '@Antelope/views/index/index.twig'

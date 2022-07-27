@@ -1,34 +1,53 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\AntelopeSearch\Business\Writer;
 
 use Generated\Shared\Transfer\AntelopeTransfer;
-use Orm\Zed\Antelope\Persistence\PyzAntelopeQuery;
-use Orm\Zed\AntelopeSearch\Persistence\PyzAntelopeSearchQuery;
-use Propel\Runtime\Exception\PropelException;
-use Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException;
+use Pyz\Zed\Antelope\Business\AntelopeFacadeInterface;
+use Pyz\Zed\AntelopeSearch\Persistence\AntelopeSearchQueryContainerInterface;
 
-class AntelopeSearchWriter
+class AntelopeSearchWriter implements AntelopeSearchWriterInterface
 {
+    /**
+     * @var \Pyz\Zed\Antelope\Business\AntelopeFacadeInterface
+     */
+    protected AntelopeFacadeInterface $antelopeFacade;
+
+    /**
+     * @var \Pyz\Zed\AntelopeSearch\Persistence\AntelopeSearchQueryContainerInterface
+     */
+    protected AntelopeSearchQueryContainerInterface $antelopeSearchQueryContainer;
+
+    /**
+     * @param \Pyz\Zed\Antelope\Business\AntelopeFacadeInterface $antelopeFacade
+     */
+    public function __construct(
+        AntelopeFacadeInterface $antelopeFacade,
+        AntelopeSearchQueryContainerInterface $antelopeSearchQueryContainer
+    ) {
+        $this->antelopeFacade = $antelopeFacade;
+        $this->antelopeSearchQueryContainer = $antelopeSearchQueryContainer;
+    }
+
     /**
      * @param int $idAntelope
      *
      * @return void
-     * @throws AmbiguousComparisonException|
      * PropelException
      */
     public function publish(int $idAntelope): void
     {
-        $antelopeEntity = PyzAntelopeQuery::create()
-            ->filterByIdAntelope($idAntelope)
-            ->findOne();
-
         $antelopeTransfer = new AntelopeTransfer();
-        $antelopeTransfer->fromArray($antelopeEntity->toArray());
+        $antelopeTransfer->setIdAntelope($idAntelope);
+        $antelopeTransfer = $this->antelopeFacade->getAntelope($antelopeTransfer);
 
-        $searchEntity = PyzAntelopeSearchQuery::create()
-            ->filterByFkAntelope($idAntelope)
-            ->findOneOrCreate();
+        $searchEntity = $this->antelopeSearchQueryContainer
+            ->findAntelope($antelopeTransfer);
         $searchEntity->setFkAntelope($idAntelope);
         $searchEntity->setData($antelopeTransfer->toArray());
 

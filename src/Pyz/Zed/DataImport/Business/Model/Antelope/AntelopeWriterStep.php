@@ -2,7 +2,8 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\Antelope;
 
-use Orm\Zed\Antelope\Persistence\PyzAntelopeQuery;
+use Generated\Shared\Transfer\AntelopeTransfer;
+use Pyz\Zed\Antelope\Business\AntelopeFacadeInterface;
 use Pyz\Zed\Antelope\Dependency\AntelopeEvents;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\PublishAwareStep;
@@ -10,20 +11,31 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AntelopeWriterStep extends PublishAwareStep implements DataImportStepInterface
 {
+
     public const KEY_NAME = 'name';
     public const KEY_COLOR = 'color';
+    /**
+     * @var \Pyz\Zed\Antelope\Business\AntelopeFacadeInterface
+     */
+    protected AntelopeFacadeInterface $antelopeFacade;
+
+    public function __construct(AntelopeFacadeInterface $antelopeFacade)
+    {
+        $this->antelopeFacade = $antelopeFacade;
+    }
 
     /**
      * @param DataSetInterface $dataSet
      *
-      *
+     *
      * @return void
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $antelopeEntity = PyzAntelopeQuery::create()
-            ->filterByName($dataSet[static::KEY_NAME])
-            ->findOneOrCreate();
+        $antelopeTransfer = new AntelopeTransfer();
+        $antelopeTransfer->setName($dataSet[static::KEY_NAME]);
+        $antelopeEntity = $this->antelopeFacade->getAntelopeByName($antelopeTransfer);
+
 
         $antelopeEntity->setColor($dataSet[static::KEY_COLOR]);
 

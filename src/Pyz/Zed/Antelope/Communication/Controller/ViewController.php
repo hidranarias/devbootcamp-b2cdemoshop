@@ -22,7 +22,7 @@ class ViewController extends AbstractController
      *
      * @return array|RedirectResponse
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request): array
     {
         $idAntelope = $request->get(static::PARAM_ID_ANTELOPE);
 
@@ -53,7 +53,7 @@ class ViewController extends AbstractController
      *
      * @return AntelopeTransfer
      */
-    protected function loadAntelopeTransfer($idAntelope): AntelopeTransfer
+    protected function loadAntelopeTransfer(int $idAntelope): AntelopeTransfer
     {
         $antelopeTransfer = $this->createAntelopeTransfer();
         $antelopeTransfer->setIdAntelope($idAntelope);

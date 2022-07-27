@@ -7,12 +7,23 @@
 
 namespace Pyz\Yves\CustomerPage;
 
+use Spryker\Yves\Kernel\Container;
 use SprykerShop\Yves\AgentPage\Plugin\FixAgentTokenAfterCustomerAuthenticationSuccessPlugin;
 use SprykerShop\Yves\CustomerPage\CustomerPageDependencyProvider as SprykerShopCustomerPageDependencyProvider;
 use SprykerShop\Yves\CustomerReorderWidget\Plugin\CustomerPage\CustomerReorderWidgetPlugin;
 
 class CustomerPageDependencyProvider extends SprykerShopCustomerPageDependencyProvider
 {
+    public const CLIENT_ANTELOPE = 'CLIENT_ANTELOPE';
+
+    public function provideDependencies(Container $container): Container
+    {
+        $container = parent::provideDependencies($container);
+        $container = $this->addAntelopeClient($container);
+
+        return $container;
+    }
+
     /**
      * @return string[]
      */
@@ -52,4 +63,14 @@ class CustomerPageDependencyProvider extends SprykerShopCustomerPageDependencyPr
             new FixAgentTokenAfterCustomerAuthenticationSuccessPlugin(),
         ];
     }
+
+    protected function addAntelopeClient(Container $container): Container
+    {
+        $container->set(static::CLIENT_ANTELOPE, function (Container $container) {
+            return $container->getLocator()->antelope()->client();
+        });
+
+        return $container;
+    }
+
 }

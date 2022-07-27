@@ -13,4 +13,10 @@ interface AntelopeRepositoryInterface
      */
     public function findAntelopeById(int $idAntelope): ?AntelopeTransfer;
 
+    /**
+     * @param string $name
+     *
+     * @return AntelopeTransfer|null
+     */
+    public function findAntelopeByName(string $name): ?AntelopeTransfer;
 }

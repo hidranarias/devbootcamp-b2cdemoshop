@@ -61,6 +61,7 @@ class AntelopeTable extends AbstractTable
 
         return $config;
     }
+
     /**
      * @param TableConfiguration $config
      *
@@ -99,7 +100,7 @@ class AntelopeTable extends AbstractTable
     /**
      * @param ObjectCollection|PyzAntelope[] $antelopeCollection
      *
-     * @return array
+     * @return array<array<string,string>>
      */
     protected function mapAntelopeCollection(ObjectCollection $antelopeCollection): array
     {
@@ -115,7 +116,7 @@ class AntelopeTable extends AbstractTable
     /**
      * @param PyzAntelope $antelopeEntity
      *
-     * @return array
+     * @return array<string,string>
      */
     protected function mapAntelopeRow(PyzAntelope $antelopeEntity): array
     {

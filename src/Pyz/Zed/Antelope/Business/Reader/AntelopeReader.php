@@ -2,7 +2,8 @@
 
 namespace Pyz\Zed\Antelope\Business\Reader;
 
-use Generated\Shared\Transfer\AntelopeTransfer;
+use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
+use Generated\Shared\Transfer\AntelopeResponseTransfer;
 use Pyz\Zed\Antelope\Persistence\AntelopeRepositoryInterface;
 
 class AntelopeReader implements AntelopeReaderInterface
@@ -21,12 +22,32 @@ class AntelopeReader implements AntelopeReaderInterface
     }
 
     /**
-     * @param AntelopeTransfer $antelopeTransfer
-     *
-     * @return AntelopeTransfer|null
+     * @inheriDoc
      */
-    public function getAntelope(AntelopeTransfer $antelopeTransfer): ?AntelopeTransfer
+    public function getAntelope(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeResponseTransfer
     {
-        return $this->antelopeRepository->findAntelopeById($antelopeTransfer->getIdAntelope());
+        $antelopeTransfer = $this->antelopeRepository->findAntelope($antelopeCriteriaTransfer);
+        $antelopeResponseTransfer = new AntelopeResponseTransfer();
+        $antelopeResponseTransfer->setIsSuccessful(false);
+        if ($antelopeTransfer) {
+            $antelopeResponseTransfer->setAntelope($antelopeTransfer);
+            $antelopeResponseTransfer->setIsSuccessful(true);
+        }
+        return $antelopeResponseTransfer;
+    }
+
+    /**
+     * @inheriDoc
+     */
+    public function getAntelopeByName(AntelopeCriteriaTransfer $antelopeTransfer): AntelopeResponseTransfer
+    {
+        $antelopeTransfer = $this->antelopeRepository->findAntelopeByName($antelopeTransfer->getName());
+        $antelopeResponseTransfer = new AntelopeResponseTransfer();
+        $antelopeResponseTransfer->setIsSuccessful(false);
+        if ($antelopeTransfer) {
+            $antelopeResponseTransfer->setAntelope($antelopeTransfer);
+            $antelopeResponseTransfer->setIsSuccessful(true);
+        }
+        return $antelopeResponseTransfer;
     }
 }

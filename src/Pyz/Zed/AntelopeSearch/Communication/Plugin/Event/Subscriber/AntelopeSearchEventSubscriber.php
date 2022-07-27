@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\AntelopeSearch\Communication\Plugin\Event\Subscriber;
 
 use Pyz\Zed\Antelope\Dependency\AntelopeEvents;
@@ -10,6 +15,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
  * @method \Pyz\Zed\AntelopeSearch\Business\AntelopeSearchFacadeInterface getFacade()
+ * @method \Pyz\Zed\AntelopeSearch\Persistence\AntelopeSearchQueryContainerInterface getQueryContainer()
  */
 class AntelopeSearchEventSubscriber extends AbstractPlugin implements EventSubscriberInterface
 {

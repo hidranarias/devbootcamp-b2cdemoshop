@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15824f90c6819fd7aa66259b64196334",
+    "content-hash": "046053533ea79ad2fae36d608c6f9c76",
     "packages": [
         {
             "name": "async-aws/core",
@@ -37265,6 +37265,128 @@
                 "source": "https://github.com/spryker/shopping-list-extension/tree/1.4.0"
             },
             "time": "2020-04-23T14:18:45+00:00"
+        },
+        {
+            "name": "spryker/silex",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/silex.git",
+                "reference": "5c234b59046fc48efbb244683be82004cff947ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/silex/zipball/5c234b59046fc48efbb244683be82004cff947ac",
+                "reference": "5c234b59046fc48efbb244683be82004cff947ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "spryker/silexphp": "^0.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Silex module",
+            "support": {
+                "source": "https://github.com/spryker/silex/tree/2.2.1"
+            },
+            "abandoned": true,
+            "time": "2020-07-24T04:44:33+00:00"
+        },
+        {
+            "name": "spryker/silexphp",
+            "version": "0.3.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/silexphp.git",
+                "reference": "1d1d035a0c961bfa9eee33f6733939a40d04bcc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/1d1d035a0c961bfa9eee33f6733939a40d04bcc6",
+                "reference": "1d1d035a0c961bfa9eee33f6733939a40d04bcc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "spryker/container": "^1.1.0",
+                "symfony/event-dispatcher": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/http-kernel": "^4.3.0 || ^5.0.0",
+                "symfony/routing": "^3.0.0 || ^4.0.0 || ^5.0.0"
+            },
+            "conflict": {
+                "silexphp/silex": "<3.0.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.2",
+                "monolog/monolog": "^1.4.1 || ^2.0.0",
+                "phpstan/phpstan": "^0.12.35",
+                "phpunit/phpunit": "^8.0.0 || ^9.0.0",
+                "sllh/composer-versions-check": "^2.0",
+                "swiftmailer/swiftmailer": "^5.0.0 || ^6.0.0",
+                "symfony/browser-kit": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/config": "^4.2.0 || ^5.0.0",
+                "symfony/css-selector": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/debug": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/dom-crawler": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/finder": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/form": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/intl": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/monolog-bridge": "^3.4.0 || ^4.0.0 || ^5.0.0",
+                "symfony/options-resolver": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/process": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/security-core": "^4.2.7 < 4.4.0 || ^4.4.7 || ^5.0.0",
+                "symfony/security-csrf": "^4.2.7 < 4.4.0 || ^4.4.7 || ^5.0.0",
+                "symfony/security-guard": "^4.2.7 < 4.4.0 || ^4.4.7 || ^5.0.0",
+                "symfony/security-http": "^4.2.7 < 4.4.0 || ^4.4.7 || ^5.0.0",
+                "symfony/serializer": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/translation": "^4.2.0 || ^5.0.0",
+                "symfony/twig-bridge": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "symfony/validator": "^3.0.0 || ^4.0.0 || ^5.0.0",
+                "twig/twig": "^1.41 || ^2.0.0 || ^3.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Silex\\": "src/Silex"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                }
+            ],
+            "description": "The PHP micro-framework based on the Symfony Components",
+            "homepage": "http://silex.sensiolabs.org",
+            "keywords": [
+                "microframework"
+            ],
+            "support": {
+                "source": "https://github.com/spryker/silexphp/tree/0.3.11"
+            },
+            "time": "2022-04-14T15:04:10+00:00"
         },
         {
             "name": "spryker/sql-criteria-builder",

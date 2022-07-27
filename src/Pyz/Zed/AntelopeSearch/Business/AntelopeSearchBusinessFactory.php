@@ -1,16 +1,40 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\AntelopeSearch\Business;
 
+use Pyz\Zed\AntelopeSearch\AntelopeSearchDependencyProvider;
 use Pyz\Zed\AntelopeSearch\Business\Writer\AntelopeSearchWriter;
+use Pyz\Zed\AntelopeSearch\Business\Writer\AntelopeSearchWriterInterface;
+use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
-class AntelopeSearchBusinessFactory
+/**
+ * @method \Pyz\Zed\AntelopeSearch\Persistence\AntelopeSearchQueryContainerInterface getQueryContainer()
+ */
+class AntelopeSearchBusinessFactory extends AbstractBusinessFactory
 {
     /**
-     * @return AntelopeSearchWriter
+     * @var \Pyz\Zed\Antelope\Business\AntelopeFacadeInterface|\Spryker\Zed\Category\Persistence\CategoryEntityManagerInterface
      */
-    public function createAntelopeSearchWriter(): AntelopeSearchWriter
+    protected $antelopeFacade;
+
+    /**
+     * @return \Pyz\Zed\AntelopeSearch\Business\Writer\AntelopeSearchWriter
+     */
+    public function createAntelopeSearchWriter(): AntelopeSearchWriterInterface
     {
-        return new AntelopeSearchWriter();
+        return new AntelopeSearchWriter($this->getAntelopeFacade());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAntelopeFacade()
+    {
+        return $this->getProvidedDependency(AntelopeSearchDependencyProvider::ANTELOPE_FACADE);
     }
 }

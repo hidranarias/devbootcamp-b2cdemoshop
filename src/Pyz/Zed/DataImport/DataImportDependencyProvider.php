@@ -60,6 +60,7 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
     public const FACADE_PRICE_PRODUCT = 'FACADE_PRICE_PRODUCT';
     public const FACADE_STOCK = 'FACADE_STOCK';
     public const FACADE_STORE = 'FACADE_STORE';
+    public const FACADE_ANTELOPE = 'FACADE_ANTELOPE';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -93,6 +94,20 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $container[static::FACADE_AVAILABILITY] = function (Container $container) {
             return $container->getLocator()->availability()->facade();
         };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addAntelopeFacade(Container $container)
+    {
+        $container->set(static::FACADE_ANTELOPE, function (Container $container) {
+            return $container->getLocator()->antelope()->facade();
+        });
 
         return $container;
     }

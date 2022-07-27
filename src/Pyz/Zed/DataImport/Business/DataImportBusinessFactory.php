@@ -146,13 +146,12 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker
-            ->addStep(new AntelopeWriterStep());
+            ->addStep(new AntelopeWriterStep($this->getProvidedDependency(DataImportDependencyProvider::FACADE_ANTELOPE)));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
     }
-
 
 
     /**
@@ -164,7 +163,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         switch ($dataImportConfigurationActionTransfer->getDataEntity()) {
             case DataImportConfig::IMPORT_TYPE_ANTELOPE:
-               return $this->createAntelopeImporter($dataImportConfigurationActionTransfer);
+                return $this->createAntelopeImporter($dataImportConfigurationActionTransfer);
             case DataImportConfig::IMPORT_TYPE_STORE:
                 return $this->createStoreImporter($dataImportConfigurationActionTransfer);
             case DataImportConfig::IMPORT_TYPE_CURRENCY:
@@ -722,7 +721,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     protected function createNavigationKeyToIdNavigationStep(
         $source = NavigationKeyToIdNavigationStep::KEY_SOURCE,
         $target = NavigationKeyToIdNavigationStep::KEY_TARGET
-    ) {
+    )
+    {
         return new NavigationKeyToIdNavigationStep($source, $target);
     }
 
@@ -1307,7 +1307,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     protected function createProductAbstractSkuToIdProductAbstractStep(
         string $source = ProductAbstractSkuToIdProductAbstractStep::KEY_SOURCE,
         string $target = ProductAbstractSkuToIdProductAbstractStep::KEY_TARGET
-    ): ProductAbstractSkuToIdProductAbstractStep {
+    ): ProductAbstractSkuToIdProductAbstractStep
+    {
         return new ProductAbstractSkuToIdProductAbstractStep($source, $target);
     }
 
@@ -1320,7 +1321,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     protected function createProductSkuToIdProductStep(
         string $source = ProductSkuToIdProductStep::KEY_SOURCE,
         string $target = ProductSkuToIdProductStep::KEY_TARGET
-    ): ProductSkuToIdProductStep {
+    ): ProductSkuToIdProductStep
+    {
         return new ProductSkuToIdProductStep($source, $target);
     }
 
