@@ -18,6 +18,7 @@ use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsub
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
+    public const FACADE_ANTELOPE = 'FACADE_ANTELOPE';
     /**
      * @var string
      */
@@ -44,7 +45,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
         $container->set(static::PYZ_NEWSLETTER_FACADE, function (Container $container) {
             return $container->getLocator()->newsletter()->facade();
         });
-
+        $container = $this->addAntelopeFacade($container);
         return $container;
     }
 
@@ -71,5 +72,14 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
             new CustomerTransferUsernameExpanderPlugin(),
             new AvailabilityNotificationSubscriptionCustomerTransferExpanderPlugin(),
         ];
+    }
+
+    protected function addAntelopeFacade(Container $container): Container
+    {
+        $container->set(static::FACADE_ANTELOPE, function (Container $container) {
+            return $container->getLocator()->antelope()->facade();
+        });
+
+        return $container;
     }
 }
