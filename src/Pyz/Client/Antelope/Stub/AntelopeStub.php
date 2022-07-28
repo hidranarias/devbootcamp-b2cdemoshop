@@ -4,6 +4,7 @@ namespace Pyz\Client\Antelope\Stub;
 
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Generated\Shared\Transfer\AntelopeResponseTransfer;
+use Generated\Shared\Transfer\AntelopeTransfer;
 use Spryker\Client\ZedRequest\Stub\ZedRequestStub;
 
 class AntelopeStub extends ZedRequestStub
@@ -19,7 +20,7 @@ class AntelopeStub extends ZedRequestStub
     public function createAntelope(AntelopeTransfer $antelopeCriteria): AntelopeTransfer
     {
         /** @var \Generated\Shared\Transfer\AntelopeTransfer $antelopeTransfer */
-        $antelopeTransfer = $this->zedStub->call('/antelope/gateway/create-antelope', $antelopeTransfer);
+        $antelopeTransfer = $this->zedStub->call('/antelope/gateway/create-antelope', $antelopeCriteria);
 
         return $antelopeTransfer;
     }

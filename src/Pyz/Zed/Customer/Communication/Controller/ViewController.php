@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ViewController extends SprykerViewController
 {
-    public function index2Action(Request $request)
+    public function indexAction(Request $request)
     {
         $response = parent::indexAction($request);
 

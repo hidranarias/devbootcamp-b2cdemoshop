@@ -26,8 +26,12 @@ class AntelopeBusinessFactory extends AbstractBusinessFactory
 
     public function createAntelopeWriter(): AntelopeWriterInterface
     {
+        /**
+         * @var \Pyz\Zed\Antelope\Persistence\AntelopeEntityManagerInterface $antelopeEntityManager
+         */
+        $antelopeEntityManager = $this->getEntityManager();
         return new AntelopeWriter(
-            $this->getEntityManager()
+            $antelopeEntityManager
         );
     }
 }

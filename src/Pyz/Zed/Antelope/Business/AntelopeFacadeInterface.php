@@ -12,16 +12,16 @@ use Generated\Shared\Transfer\AntelopeTransfer;
 interface AntelopeFacadeInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\AntelopeTransfer $antelopeTransfer
+     * @param \Generated\Shared\Transfer\AntelopeCriteriaTransfer $antelopeTransfer
      *
      * @return \Generated\Shared\Transfer\AntelopeTransfer
      */
-    public function createAntelope(AntelopeTransfer $antelopeTransfer): AntelopeTransfer;
+    public function createAntelope(AntelopeCriteriaTransfer $antelopeTransfer): AntelopeTransfer;
 
     /**
      * @param AntelopeCriteriaTransfer $antelopeTransfer
      *
-     * @return AntelopeTransfer
+     * @return AntelopeResponseTransfer
      */
     public function getAntelope(AntelopeCriteriaTransfer $antelopeTransfer): AntelopeResponseTransfer;
 

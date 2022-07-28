@@ -65,7 +65,5 @@ class AntelopeRepository extends AbstractRepository implements AntelopeRepositor
         return $this->findAntelopeByName($antelopeCriteria->getName());
 
 
-        return $antelopeTransfer;
-
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Antelope\Communication\Controller;
 
-use Generated\Shared\Transfer\AntelopeTransfer;
+use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
+use Generated\Shared\Transfer\AntelopeResponseTransfer;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -20,7 +20,7 @@ class ViewController extends AbstractController
     /**
      * @param Request $request
      *
-     * @return array|RedirectResponse
+     * @return mixed
      */
     public function indexAction(Request $request): array
     {
@@ -41,21 +41,21 @@ class ViewController extends AbstractController
     }
 
     /**
-     * @return AntelopeTransfer
+     * @return AntelopeCriteriaTransfer
      */
-    protected function createAntelopeTransfer(): AntelopeTransfer
+    protected function createAntelopeCriteriaTransfer(): AntelopeCriteriaTransfer
     {
-        return new AntelopeTransfer();
+        return new AntelopeCriteriaTransfer();
     }
 
     /**
      * @param int $idAntelope
      *
-     * @return AntelopeTransfer
+     * @return AntelopeResponseTransfer
      */
-    protected function loadAntelopeTransfer(int $idAntelope): AntelopeTransfer
+    protected function loadAntelopeTransfer(int $idAntelope): AntelopeResponseTransfer
     {
-        $antelopeTransfer = $this->createAntelopeTransfer();
+        $antelopeTransfer = $this->createAntelopeCriteriaTransfer();
         $antelopeTransfer->setIdAntelope($idAntelope);
         return $this->getFacade()->getAntelope($antelopeTransfer);
     }

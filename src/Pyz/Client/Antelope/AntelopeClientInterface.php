@@ -14,13 +14,11 @@ interface AntelopeClientInterface
     /**
      * @param string $name
      *
-     * @return array
+     * @return AntelopeTransfer
      */
-    public function getAntelopeByName(string $name): array;
+    public function getAntelopeByName(string $name): AntelopeTransfer;
 
     /**
-     * @param string $name
-     *
      * @return array<AntelopeTransfer>
      */
     public function getAntelopes(): array;

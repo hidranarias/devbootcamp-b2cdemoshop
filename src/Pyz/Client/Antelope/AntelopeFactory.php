@@ -20,7 +20,7 @@ class AntelopeFactory extends AbstractFactory
     }
 
     /**
-     * @return array
+     * @return mixed
      */
     public function getSearchQueryFormatters(): array
     {
@@ -40,7 +40,9 @@ class AntelopeFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(AntelopeDependencyProvider::CLIENT_ZED_REQUEST);
     }
-    public function createAntelopeStub() {
+
+    public function createAntelopeStub(): AntelopeStub
+    {
         return new AntelopeStub($this->getZedRequestClient());
     }
 }

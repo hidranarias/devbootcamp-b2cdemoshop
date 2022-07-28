@@ -15,9 +15,9 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
     /**
      * @param string $name
      *
-     * @return array
+     * @return AntelopeTransfer
      */
-    public function getAntelopeByName(string $name): array
+    public function getAntelopeByName(string $name): AntelopeTransfer
     {
         $searchQuery = $this->getFactory()
             ->createAntelopeQueryPlugin($name);
@@ -37,7 +37,7 @@ class AntelopeClient extends AbstractClient implements AntelopeClientInterface
 
     /**
      *
-     * @return array
+     * @return array<AntelopeTransfer>
      */
     public function getAntelopes(): array
     {

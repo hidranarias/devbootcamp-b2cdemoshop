@@ -23,11 +23,11 @@ class AntelopeResultFormatterPlugin extends AbstractElasticsearchResultFormatter
      *
      * @return array
      */
-    protected function formatSearchResult(ResultSet $searchResult, array $requestParameters)
+    protected function formatSearchResult(ResultSet $searchResult, array $requestParameters): array
     {
-         $res = [];
+        $res = [];
         foreach ($searchResult->getResults() as $document) {
-             $res[] = $document->getSource();
+            $res[] = $document->getSource();
         }
 
         return $res;

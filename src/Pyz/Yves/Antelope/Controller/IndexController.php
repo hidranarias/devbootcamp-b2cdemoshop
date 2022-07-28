@@ -6,6 +6,7 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
  * @method \Pyz\Client\Antelope\AntelopeClientInterface getClient()
+ * @method \Spryker\Client\Storage\StoreClientInterface getStoreClient()
  */
 class IndexController extends AbstractController
 {
