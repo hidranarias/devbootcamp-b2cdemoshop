@@ -18,9 +18,11 @@ class GatewayController extends AbstractGatewayController
             ->getAntelope($antelopeCriteria);
     }
 
-    public function createAntelopeAction(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeTransfer
+    public function createAntelopeAction(AntelopeTransfer $antelopeTransfer): AntelopeTransfer
     {
+        $antelopeTransfer->setColor('gray');
         return $this->getFacade()
-            ->createAntelope($antelopeCriteriaTransfer);
+            ->createAntelope($antelopeTransfer);
+
     }
 }

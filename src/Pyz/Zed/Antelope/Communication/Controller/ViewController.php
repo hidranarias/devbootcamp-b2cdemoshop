@@ -35,7 +35,7 @@ class ViewController extends AbstractController
         $antelopeTransfer = $this->loadAntelopeTransfer($idAntelope);
 
         return $this->viewResponse([
-            'antelope' => $antelopeTransfer,
+            'antelope' => $antelopeTransfer->getAntelope(),
             'idAntelope' => $idAntelope,
         ]);
     }
@@ -55,8 +55,8 @@ class ViewController extends AbstractController
      */
     protected function loadAntelopeTransfer(int $idAntelope): AntelopeResponseTransfer
     {
-        $antelopeTransfer = $this->createAntelopeCriteriaTransfer();
-        $antelopeTransfer->setIdAntelope($idAntelope);
-        return $this->getFacade()->getAntelope($antelopeTransfer);
+        $antelopeCriteriaTransfer = $this->createAntelopeCriteriaTransfer();
+        $antelopeCriteriaTransfer->setIdAntelope($idAntelope);
+        return $this->getFacade()->getAntelope($antelopeCriteriaTransfer);
     }
 }
