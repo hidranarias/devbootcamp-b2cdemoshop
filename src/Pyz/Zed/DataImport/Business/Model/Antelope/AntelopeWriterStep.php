@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\Antelope;
 
-use Generated\Shared\Transfer\AntelopeTransfer;
+use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Pyz\Zed\Antelope\Business\AntelopeFacadeInterface;
 use Pyz\Zed\Antelope\Dependency\AntelopeEvents;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -32,11 +32,11 @@ class AntelopeWriterStep extends PublishAwareStep implements DataImportStepInter
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $antelopeTransfer = new AntelopeTransfer();
+        $antelopeTransfer = new AntelopeCriteriaTransfer();
         $antelopeTransfer->setName($dataSet[static::KEY_NAME]);
-        $antelopeEntity = $this->antelopeFacade->getAntelopeByName($antelopeTransfer);
+        $antelopeResponse = $this->antelopeFacade->getAntelopeByName($antelopeTransfer);
 
-
+        $antelopeEntity = $this->antelopeFacade->
         $antelopeEntity->setColor($dataSet[static::KEY_COLOR]);
 
         if ($antelopeEntity->isNew() || $antelopeEntity->isModified()) {

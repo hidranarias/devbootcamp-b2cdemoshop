@@ -21,10 +21,10 @@ class AntelopesRestApiDependencyProvider extends AbstractBundleDependencyProvide
 
     protected function addAntelopeClient(Container $container): Container
     {
-        $container->set();
-        $container[static::CLIENT_ANTELOPE] = function (Container $container) {
+
+        $container->set(static::CLIENT_ANTELOPE, function (Container $container) {
             return $container->getLocator()->antelope()->client();
-        };
+        });
 
         return $container;
     }

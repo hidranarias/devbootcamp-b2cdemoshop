@@ -16,7 +16,7 @@ interface AntelopeClientInterface
      *
      * @return AntelopeTransfer
      */
-    public function getAntelopeByName(string $name): AntelopeTransfer;
+    public function getAntelopeByName(string $name): ?AntelopeTransfer;
 
     /**
      * @return array<AntelopeTransfer>

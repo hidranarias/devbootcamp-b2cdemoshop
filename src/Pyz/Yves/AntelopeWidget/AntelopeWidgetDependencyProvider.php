@@ -26,9 +26,9 @@ class AntelopeWidgetDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function addAntelopeClient(Container $container): Container
     {
-        $container[self::CLIENT_ANTELOPE] = function (Container $container) {
+        $container->set(self::CLIENT_ANTELOPE, function (Container $container) {
             return $container->getLocator()->antelope()->client();
-        };
+        });
 
         return $container;
     }

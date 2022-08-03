@@ -12,7 +12,7 @@ class AntelopeResultFormatterPlugin extends AbstractElasticsearchResultFormatter
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return static::NAME;
     }

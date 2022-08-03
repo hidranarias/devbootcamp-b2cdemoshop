@@ -10,7 +10,7 @@ use Spryker\Client\ZedRequest\ZedRequestClientInterface;
 class AntelopeFactory extends AbstractFactory
 {
     /**
-     * @param string $name
+     * @param string|null $name
      *
      * @return \Pyz\Client\Antelope\Plugin\Elasticsearch\Query\AntelopeQueryPlugin
      */

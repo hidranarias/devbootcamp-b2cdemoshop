@@ -2,6 +2,7 @@
 
 namespace Pyz\Glue\AntelopesRestApi\Processor\Antelopes;
 
+use Generated\Shared\Transfer\AntelopeTransfer;
 use Generated\Shared\Transfer\RestErrorMessageTransfer;
 use Pyz\Client\Antelope\AntelopeClientInterface;
 use Pyz\Glue\AntelopesRestApi\AntelopesRestApiConfig;
@@ -24,10 +25,11 @@ class AntelopesReader implements AntelopesReaderInterface
     protected $antelopesResourceMapper;
 
     public function __construct(
-        AntelopeClientInterface $antelopeClient,
-        RestResourceBuilderInterface $restResourceBuilder,
+        AntelopeClientInterface          $antelopeClient,
+        RestResourceBuilderInterface     $restResourceBuilder,
         AntelopesResourceMapperInterface $antelopesResourceMapper
-    ) {
+    )
+    {
         $this->antelopeClient = $antelopeClient;
         $this->restResourceBuilder = $restResourceBuilder;
         $this->antelopesResourceMapper = $antelopesResourceMapper;
@@ -51,31 +53,29 @@ class AntelopesReader implements AntelopesReaderInterface
 
         return $response->addResource($restResource);
     }
-    public function findAntelopes( RestRequestInterface $restRequest): ?array
+
+    public function findAntelopes(RestRequestInterface $restRequest): ?array
     {
         $resp = [];
         $antelopeData = $this->antelopeClient->getAntelopes();
 
-       foreach ($antelopeData as $ant) {
-           $resp[] = $this->createRestResourceFromAntelopeSearchData($ant, $restRequest);
+        foreach ($antelopeData as $ant) {
+            $resp[] = $this->createRestResourceFromAntelopeSearchData($ant, $restRequest);
 
-       }
+        }
 
         return $resp;
     }
+
     public function findAntelopeByName(string $name, RestRequestInterface $restRequest): ?RestResourceInterface
     {
         $antelopeData = $this->antelopeClient->getAntelopeByName($name);
 
-        if (empty($antelopeData)) {
-            return null;
-        }
 
-        return $this->createRestResourceFromAntelopeSearchData($antelopeData[0], $restRequest);
+        return $this->createRestResourceFromAntelopeSearchData($antelopeData, $restRequest);
     }
 
-    protected function createRestResourceFromAntelopeSearchData(array $antelopeData, RestRequestInterface $restRequest)
-    : RestResourceInterface
+    protected function createRestResourceFromAntelopeSearchData(AntelopeTransfer $antelopeData, RestRequestInterface $restRequest): RestResourceInterface
     {
         $restAntelopeAttributesTransfer = $this->antelopesResourceMapper
             ->mapAntelopeDataToAntelopeRestAttributes($antelopeData);
@@ -90,6 +90,7 @@ class AntelopesReader implements AntelopesReaderInterface
     /**
      * @param RestRequestInterface $restRequest
      * @param RestResponseInterface $response
+     *
      * @return RestResponseInterface
      */
     public function getAntelopes(RestRequestInterface $restRequest, RestResponseInterface $response): RestResponseInterface

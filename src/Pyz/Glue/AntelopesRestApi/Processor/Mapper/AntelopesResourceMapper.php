@@ -2,13 +2,20 @@
 
 namespace Pyz\Glue\AntelopesRestApi\Processor\Mapper;
 
+use Generated\Shared\Transfer\AntelopeTransfer;
 use Generated\Shared\Transfer\RestAntelopesAttributesTransfer;
 
 class AntelopesResourceMapper implements AntelopesResourceMapperInterface
 {
-    public function mapAntelopeDataToAntelopeRestAttributes(array $antelopeData): RestAntelopesAttributesTransfer
+    public function mapAntelopeDataToAntelopeRestAttributes(AntelopeTransfer $antelopeData): RestAntelopesAttributesTransfer
     {
-        return (new RestAntelopesAttributesTransfer())->fromArray($antelopeData, true);
+
+
+        $restAntelopesAttributesTransfer = new RestAntelopesAttributesTransfer();
+        $restAntelopesAttributesTransfer->setColor($antelopeData->getColor());
+        $restAntelopesAttributesTransfer->setName($antelopeData->getName());
+
+        return $restAntelopesAttributesTransfer;
     }
 }
 

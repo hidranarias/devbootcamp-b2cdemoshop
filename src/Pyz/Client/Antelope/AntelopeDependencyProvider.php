@@ -47,11 +47,11 @@ class AntelopeDependencyProvider extends AbstractDependencyProvider
     public function addCatalogSearchResultFormatterPlugins(Container $container): Container
     {
 
-        $container[static::ANTELOPE_RESULT_FORMATTER_PLUGINS] = function () {
+        $container->set(static::ANTELOPE_RESULT_FORMATTER_PLUGINS, function () {
             return [
                 new AntelopeResultFormatterPlugin(),
             ];
-        };
+        });
 
         return $container;
     }
