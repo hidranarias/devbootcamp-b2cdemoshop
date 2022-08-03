@@ -15,7 +15,7 @@ class AntelopeCommunicationFactory extends AbstractCommunicationFactory
     /**
      * @return AntelopeTable
      */
-    public function createAntelopeTable()
+    public function createAntelopeTable(): AntelopeTable
     {
         return new AntelopeTable(
             $this->getQueryContainer()
